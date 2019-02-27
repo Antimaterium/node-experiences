@@ -22,4 +22,8 @@ app.use(cors());
 app.use('/', index);
 app.use('/user', users);
 
+<<<<<<< HEAD
 app.listen( normalizePort(PORT), () => console.log(`Listen on port ${PORT}`));
+=======
+app.listen(PORT, () => console.log(`Listen on port ${PORT}`));
+>>>>>>> 8479d3e4f2c4b7af6c421f93d47fe3bf923bc0c2
