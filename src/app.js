@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 const cors = require('cors');
 const express = require('express');
@@ -10,12 +10,12 @@ const { normalizePort } = require('./utils/utils');
 const index = require('./routes');
 const users = require('./routes/user');
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 3000;
 const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
-    extended: true
+  extended: true
 }));
 app.use(cors());
 

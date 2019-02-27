@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon src/app.js"
+    "dev": "nodemon src/app.js",
+    "lint": "node_modules/eslint/bin/eslint.js . --fix",
+    "watch": "node node_modules/eslint-watch/bin/esw -w --fix"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +18,8 @@
     "express": "^4.16.4"
   },
   "devDependencies": {
+    "eslint": "^5.14.1",
+    "eslint-watch": "^4.0.2",
     "nodemon": "^1.18.10"
   }
 }
