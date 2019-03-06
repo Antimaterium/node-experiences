@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon src/app.js",
+    "test": "./node_modules/mocha/bin/mocha",
+    "test:watch": "./node_modules/mocha/bin/mocha --watch",
     "lint": "node_modules/eslint/bin/eslint.js . --fix",
-    "watch": "node node_modules/eslint-watch/bin/esw -w --fix"
+    "lint:watch": "node node_modules/eslint-watch/bin/esw -w --fix"
   },
   "keywords": [],
   "author": "",
@@ -18,8 +19,10 @@
     "express": "^4.16.4"
   },
   "devDependencies": {
+    "chai": "^4.2.0",
     "eslint": "^5.14.1",
     "eslint-watch": "^4.0.2",
+    "mocha": "^6.0.2",
     "nodemon": "^1.18.10"
   }
 }
