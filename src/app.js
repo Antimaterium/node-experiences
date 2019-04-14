@@ -3,25 +3,20 @@
 const cors = require('cors');
 const helmet = require('helmet');
 const express = require('express');
-const bodyParser = require('body-parser');
+require('./config/config');
 
 const { normalizePort } = require('./utils/utils');
 
-// routes
-const index = require('./routes');
-const users = require('./routes/user');
-
-const PORT = process.env.PORT || 3000;
+const PORT = normalizePort(process.env.PORT || 3000);
 const app = express();
 
 app.use(helmet());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
+app.use(express.json());
+app.use(express.urlencoded({
   extended: true
 }));
 app.use(cors());
 
-app.use('/', index);
-app.use('/user', users);
+app.use('/', require('./routes'));
 
-app.listen( normalizePort(PORT), () => console.log(`Listen on port ${PORT}`));
+app.listen( PORT, () => console.log(`Listen on port ${PORT}`));

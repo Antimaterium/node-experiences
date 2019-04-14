@@ -1,11 +1,10 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/', function (req, res) {
-  res.status(200).send({
-    title: 'Node API Teste',
-    version: '0.0.1'
-  });
-});
+// routes
+const users = require('./user');
+
+router.use('/', (req, res) => res.send('Index route'));
+router.use('/user', users)
 
 module.exports = router;
