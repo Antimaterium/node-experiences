@@ -1,10 +1,6 @@
 const express = require('express');
 const router = express.Router();
 
-// routes
-const users = require('./user');
-
-router.use('/', (req, res) => res.send('Index route'));
-router.use('/user', users)
+router.get('/', (req, res) => res.send('Index route'));
 
 module.exports = router;

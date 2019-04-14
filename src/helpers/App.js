@@ -7,6 +7,10 @@ const express = require('express');
 const { normalizePort } = require('../utils/utils');
 require('../config/config');
 
+// routes
+const indexRoute = require('../routes');
+const users = require('../routes/user');
+
 const App = function App() {
   this._app = express();
   this._port = normalizePort(process.env.PORT || 3000);
@@ -28,7 +32,8 @@ App.prototype._middlewares = function _middlewares() {
 }
 
 App.prototype._routes = function _routes() {
-  this._app.use('/', require('../routes'));
+  this._app.use('/', indexRoute);
+  this._app.use('/user', users);
 }
 
 module.exports = new App();
