@@ -1,10 +1,11 @@
 const express = require('express');
 const router = express.Router();
+
+const JWT = require('../helpers/JWT');
 const controller = require('../controller/UserController');
 
-router.get('/', controller.get);
-router.post('/', controller.post);
-router.put('/:id', controller.put);
-router.delete('/:id', controller.delete);
+router.post('/login', controller.login, JWT.generate);
+router.use('/', JWT.verify);
+router.get('/:_id', controller.read);
 
 module.exports = router;
