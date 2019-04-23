@@ -44,7 +44,7 @@ class UserController {
     next();
   }
 
-  static read(req, res, next) {
+  static read(req, res) {
     const validates = {
       _id: req.params._id,
     };
@@ -57,7 +57,6 @@ class UserController {
       if (!err) {
         return;
       }
-
       res.status(401).send({ error: mapValidation(err) });
     });
 
@@ -65,11 +64,10 @@ class UserController {
     const user = new User( Number(_id) );    
     const result = user.read();
     if (!result) {
-      res.status(500).send({ auth: false, error: 'User not founded!' });
+      res.status(500).send({ error: 'User not founded!' });
     }
 
-    req.body = result;
-    next();
+    res.status(200).send({ result });
   }
 
 }
