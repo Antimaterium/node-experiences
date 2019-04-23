@@ -13,7 +13,12 @@ class User {
   }
 
   read() {
-    return usersList.find( user => user._id === this._id );
+    let user = usersList.find( user => user._id === this._id );
+    if (!user) {
+      return ;
+    }
+    user.password = undefined;
+    return user;
   }
 
   set password( password ) {
